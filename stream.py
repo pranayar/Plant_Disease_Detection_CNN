@@ -6,11 +6,9 @@ import cv2
 import base64
 import time
 
-# -------------------------------
-# 1️⃣ Model + Labels
-# -------------------------------
 @st.cache_resource
 def load_model():
+    #Ensure to have the model file in the same directory or provide the correct path
     return tf.keras.models.load_model("plant_disease_cnn7_best.keras", compile=False)
 
 model = load_model()
@@ -33,9 +31,6 @@ LABELS = [
 
 IMG_SIZE = 224
 
-# -------------------------------
-# 2️⃣ Page Configuration
-# -------------------------------
 st.set_page_config(page_title="🌿 GreenLeaf AI", page_icon="🌱", layout="wide")
 
 st.markdown("""
@@ -92,15 +87,9 @@ footer {visibility: hidden;}
 </style>
 """, unsafe_allow_html=True)
 
-# -------------------------------
-# 3️⃣ Header Section
-# -------------------------------
 st.markdown("<h1 class='main-title'>🌿 GreenLeaf AI</h1>", unsafe_allow_html=True)
 st.markdown("<p class='subtitle'>AI-Powered Real-Time Plant Disease Detection</p>", unsafe_allow_html=True)
 
-# -------------------------------
-# 4️⃣ Sidebar Navigation
-# -------------------------------
 with st.sidebar:
     st.image("https://cdn-icons-png.flaticon.com/512/619/619153.png", width=100)
     st.header("🌱 Navigation")
@@ -113,9 +102,6 @@ with st.sidebar:
         Upload an image or use your webcam for instant detection.
     """)
 
-# -------------------------------
-# 5️⃣ Prediction Function
-# -------------------------------
 def predict(img):
     img = img.resize((IMG_SIZE, IMG_SIZE))
     x = np.expand_dims(np.array(img) / 255.0, axis=0)
@@ -124,9 +110,6 @@ def predict(img):
     conf = np.max(preds) * 100
     return LABELS[idx], conf, preds
 
-# -------------------------------
-# 6️⃣ Upload Mode
-# -------------------------------
 if mode == "🖼️ Upload Image":
     st.subheader("📸 Upload a Leaf Image for Analysis")
     uploaded = st.file_uploader("Choose a file", type=["jpg", "jpeg", "png"])
@@ -151,9 +134,6 @@ if mode == "🖼️ Upload Image":
                 </div>
             """, unsafe_allow_html=True)
 
-# -------------------------------
-# 7️⃣ Real-Time Detection Mode
-# -------------------------------
 else:
     st.subheader("🎥 Real-Time Detection")
     st.info("Click below to start your camera and begin AI-based live detection.")
