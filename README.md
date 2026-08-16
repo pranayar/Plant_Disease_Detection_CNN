@@ -1,5 +1,27 @@
 # 🌿 Plant Disease Detection Using 7-Layer CNN
 
+AI-powered plant disease detection using a custom 7-layer CNN trained
+on the PlantVillage dataset.
+
+[![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)](...)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange?logo=tensorflow)](...)
+[![Streamlit](https://img.shields.io/badge/Streamlit-App-red?logo=streamlit)](...)
+
+## 🎥 Demo
+
+> **See the application in action:**  
+> Image upload → AI prediction → confidence score → real-time detection
+
+[▶️ **Watch the full demo**](./Plant%20detection%20-%20demo.mp4)
+
+## 📸 Application Preview
+
+![GreenLeaf AI](./images/streamlit-preview.png)
+
+
+
+# 🌿 Plant Disease Detection Using 7-Layer CNN
+
 An AI-powered plant disease detection system using a custom **7-layer Convolutional Neural Network (CNN)** built with TensorFlow/Keras.
 
 The system classifies plant leaf images into **38 different plant health and disease categories** and provides prediction confidence. It also includes a Streamlit web application for image upload and real-time camera-based detection.
